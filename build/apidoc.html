@@ -1,0 +1,825 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/idanto/node-metrics"
+
+    >express-node-metrics (v1.4.0)</a>
+</h1>
+<h4>metrics for node+express application</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-node-metrics">module express-node-metrics</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.middleware">
+            function <span class="apidocSignatureSpan">express-node-metrics.</span>middleware
+            <span class="apidocSignatureSpan">(req, res, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">express-node-metrics.</span>factory</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">express-node-metrics.</span>helper</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">express-node-metrics.</span>metrics</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-node-metrics.factory">module express-node-metrics.factory</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.factory.createMetric">
+            function <span class="apidocSignatureSpan">express-node-metrics.factory.</span>createMetric
+            <span class="apidocSignatureSpan">(name, func)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-node-metrics.helper">module express-node-metrics.helper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.helper.getRoute">
+            function <span class="apidocSignatureSpan">express-node-metrics.helper.</span>getRoute
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.helper.shouldAddMetrics">
+            function <span class="apidocSignatureSpan">express-node-metrics.helper.</span>shouldAddMetrics
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.express-node-metrics.metrics">module express-node-metrics.metrics</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.addApiData">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>addApiData
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.addCustomGaugeMetric">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>addCustomGaugeMetric
+            <span class="apidocSignatureSpan">(metricName, metricValue)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.addCustomMeterMetric">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>addCustomMeterMetric
+            <span class="apidocSignatureSpan">(metricName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.apiMetrics">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>apiMetrics
+            <span class="apidocSignatureSpan">(reset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.decrementCustomMetric">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>decrementCustomMetric
+            <span class="apidocSignatureSpan">(metricName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.endPointMetrics">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>endPointMetrics
+            <span class="apidocSignatureSpan">(reset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.getAll">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>getAll
+            <span class="apidocSignatureSpan">(reset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.incrementCustomMetric">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>incrementCustomMetric
+            <span class="apidocSignatureSpan">(metricName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.internalMetrics">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>internalMetrics
+            <span class="apidocSignatureSpan">(reset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.logInternalMetric">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>logInternalMetric
+            <span class="apidocSignatureSpan">(info, err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.express-node-metrics.metrics.processMetrics">
+            function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>processMetrics
+            <span class="apidocSignatureSpan">(reset)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-node-metrics" id="apidoc.module.express-node-metrics">module express-node-metrics</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.middleware" id="apidoc.element.express-node-metrics.middleware">
+        function <span class="apidocSignatureSpan">express-node-metrics.</span>middleware
+        <span class="apidocSignatureSpan">(req, res, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">middleware = function (req, res, next) {
+    req.startTime = new Date();
+    metrics.incrementCustomMetric(&#x22;process.run.activeRequests&#x22;);
+    // decorate response#end method from express
+    var end = res.end;
+    res.end = function () {
+        var responseTime = new Date() - req.startTime
+
+        try {
+            res.setHeader(&#x27;X-Response-Time&#x27;, responseTime + &#x27;ms&#x27;);
+        } catch(error){
+            // This Try/Catch was added to handle error &#x22;Can&#x27;t set headers after they are sent.”
+            // which is thrown when using Restify
+            // TODO: Log error
+        }
+
+        // call to original express#res.end()
+        end.apply(res, arguments);
+
+        if (!helper.shouldAddMetrics(req)){
+            var route = helper.getRoute(req);
+
+            var apiData = {
+                route: route,
+                method: req.method,
+                status: res.statusCode,
+                time: responseTime
+            }
+
+            metrics.addApiData(apiData);
+        }
+
+        metrics.decrementCustomMetric(&#x22;process.run.activeRequests&#x22;);
+    };
+
+    next();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-node-metrics.factory" id="apidoc.module.express-node-metrics.factory">module express-node-metrics.factory</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.factory.createMetric" id="apidoc.element.express-node-metrics.factory.createMetric">
+        function <span class="apidocSignatureSpan">express-node-metrics.factory.</span>createMetric
+        <span class="apidocSignatureSpan">(name, func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createMetric = function (name, func) {
+    switch (name.toLowerCase()) {
+        case &#x22;timer&#x22;:
+            {
+                return new measured.Timer();
+            }
+        case &#x22;counter&#x22;:
+            {
+                return new measured.Counter();
+            }
+        case &#x22;meter&#x22;:
+        {
+            return new measured.Meter();
+        }
+        case &#x22;gauge&#x22;:
+            if (func) {
+                return new measured.Gauge(func);
+            }
+        default:
+            return null;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-node-metrics.helper" id="apidoc.module.express-node-metrics.helper">module express-node-metrics.helper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.helper.getRoute" id="apidoc.element.express-node-metrics.helper.getRoute">
+        function <span class="apidocSignatureSpan">express-node-metrics.helper.</span>getRoute
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRoute = function (req) {
+    var route = req.baseUrl; //express
+    if (req.swagger) { //swagger
+        route = req.swagger.apiPath;
+    } else if (req.route &#x26;&#x26; route) { //express
+        route = route + req.route.path;
+    } else if (req.url &#x26;&#x26; !route) { //restify
+        route = req.url;
+        if (req.route) {
+            route = req.route.path
+        }
+    }
+
+    return route;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// TODO: Log error
+        }
+
+        // call to original express#res.end()
+        end.apply(res, arguments);
+
+        if (!helper.shouldAddMetrics(req)){
+var route = helper.<span class="apidocCodeKeywordSpan">getRoute</span>(req);
+
+var apiData = {
+    route: route,
+    method: req.method,
+    status: res.statusCode,
+    time: responseTime
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.helper.shouldAddMetrics" id="apidoc.element.express-node-metrics.helper.shouldAddMetrics">
+        function <span class="apidocSignatureSpan">express-node-metrics.helper.</span>shouldAddMetrics
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shouldAddMetrics = function (req) {
+    var should = false;
+    if (req.originalUrl) {
+        should = req.originalUrl.includes(&#x27;metrics&#x27;);
+    }
+
+    if (req.url) {
+        should = req.url.includes(&#x27;metrics&#x27;);
+    }
+
+    return should;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// which is thrown when using Restify
+// TODO: Log error
+        }
+
+        // call to original express#res.end()
+        end.apply(res, arguments);
+
+        if (!helper.<span class="apidocCodeKeywordSpan">shouldAddMetrics</span>(req)){
+var route = helper.getRoute(req);
+
+var apiData = {
+    route: route,
+    method: req.method,
+    status: res.statusCode,
+    time: responseTime
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.express-node-metrics.metrics" id="apidoc.module.express-node-metrics.metrics">module express-node-metrics.metrics</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.addApiData" id="apidoc.element.express-node-metrics.metrics.addApiData">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>addApiData
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addApiData = function (message) {
+  var metricName = getMetricName(message.route, message.method);
+  // var path = message.route ? message.route.path : undefined;
+
+  updateMetric(NAMESPACES.apiMetrics + &#x27;.&#x27; + CATEGORIES.all, message.time);
+  updateMetric(NAMESPACES.apiMetrics + &#x27;.&#x27; + CATEGORIES.statuses + &#x27;.&#x27; + message.status, message.time);
+  updateMetric(NAMESPACES.apiMetrics + &#x27;.&#x27; + CATEGORIES.methods + &#x27;.&#x27; + message.method, message.time);
+  updateMetric(NAMESPACES.apiMetrics + &#x27;.&#x27; + CATEGORIES.endpoints + &#x27;.&#x27; + metricName, message.time);
+  updateMetric(NAMESPACES.endpoints + &#x27;.&#x27; + metricName + &#x27;.&#x27; + message.status, message.time);
+  endpointsLastResponseTime[metricName] = message.time;
+  addMetric(NAMESPACES.endpoints + &#x27;.&#x27; + metricName + &#x27;.lastResponseTime&#x27;, &#x22;Gauge&#x22;, apiMetric(metricName));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [Returned function arguments](#returned-function-arguments-1)
+- [express_node_metrics.metrics.apiMetrics(reset)](#express_node_metricsmetricsapimetricsreset)
+  - [Arguments](#arguments-2)
+  - [Returned function arguments](#returned-function-arguments-2)
+- [express_node_metrics.metrics.internalMetrics(reset)](#express_node_metricsmetricsinternalmetricsreset)
+  - [Arguments](#arguments-3)
+  - [Returned function arguments](#returned-function-arguments-3)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">addApiData</span>(info, err)](#express_node_metricsmetricsaddapidatainfo
+-err)
+- [express_node_metrics.metrics.endPointMetrics(reset)](#express_node_metricsmetricsendpointmetricsreset)
+  - [Arguments](#arguments-4)
+  - [Returned function arguments](#returned-function-arguments-4)
+- [express_node_metrics.metrics.logInternalMetric(info, err)](#express_node_metricsmetricsloginternalmetricinfo-err)
+  - [Arguments](#arguments-5)
+- [express_node_metrics.metrics.addCustomGaugeMetric(metricName, metricValue)](#express_node_metricsmetricsaddcustomgaugemetricmetricname
+-metricvalue)
+  - [Arguments](#arguments-6)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.addCustomGaugeMetric" id="apidoc.element.express-node-metrics.metrics.addCustomGaugeMetric">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>addCustomGaugeMetric
+        <span class="apidocSignatureSpan">(metricName, metricValue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addCustomGaugeMetric = function (metricName, metricValue) {
+  customMetrics[metricName] = metricValue;
+
+  let gaugeFunction;
+  if (typeof metricValue === &#x27;function&#x27;) {
+    gaugeFunction = function () {
+      return customMetrics[metricName]();
+    }
+  } else {
+    gaugeFunction = function () {
+      return customMetrics[metricName];
+    }
+  }
+
+  addMetric(metricName, &#x22;Gauge&#x22;, gaugeFunction);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [Returned function arguments](#returned-function-arguments-3)
+- [express_node_metrics.metrics.addApiData(info, err)](#express_node_metricsmetricsaddapidatainfo-err)
+- [express_node_metrics.metrics.endPointMetrics(reset)](#express_node_metricsmetricsendpointmetricsreset)
+  - [Arguments](#arguments-4)
+  - [Returned function arguments](#returned-function-arguments-4)
+- [express_node_metrics.metrics.logInternalMetric(info, err)](#express_node_metricsmetricsloginternalmetricinfo-err)
+  - [Arguments](#arguments-5)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">addCustomGaugeMetric</span>(metricName, metricValue)](#express_node_metricsmetricsaddcustomgaugemetricmetricname
+-metricvalue)
+  - [Arguments](#arguments-6)
+- [express_node_metrics.metrics.incrementCustomMetric(metricName)](#express_node_metricsmetricsincrementcustommetricmetricname)
+  - [Arguments](#arguments-7)
+- [express_node_metrics.metrics.decrementCustomMetric(metricName)](#express_node_metricsmetricsdecrementcustommetricmetricname)
+  - [Arguments](#arguments-8)
+- [express_node_metrics.metrics.customMeterMetric(metricName)](#express_node_metricsmetricscustommetermetricmetricname)
+  - [Arguments](#arguments-9)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.addCustomMeterMetric" id="apidoc.element.express-node-metrics.metrics.addCustomMeterMetric">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>addCustomMeterMetric
+        <span class="apidocSignatureSpan">(metricName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addCustomMeterMetric = function (metricName) {
+  customMetersMetrics.add(metricName);
+  let meter = addMetric(metricName, &#x22;Meter&#x22;);
+  meter.mark();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.apiMetrics" id="apidoc.element.express-node-metrics.metrics.apiMetrics">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>apiMetrics
+        <span class="apidocSignatureSpan">(reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">apiMetrics = function (reset) {
+  var metricsAsJson = JSON.stringify(trackedMetrics[NAMESPACES.apiMetrics]);
+  if (reset)
+    resetMetric(NAMESPACES.apiMetrics);
+  return metricsAsJson;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [express_node_metrics.metrics](#express_node_metricsmetrics)
+- [express_node_metrics.metrics.getAll(reset)](#express_node_metricsmetricsgetallreset)
+  - [Arguments](#arguments)
+  - [Returned function arguments](#returned-function-arguments)
+- [express_node_metrics.metrics.processMetrics(reset)](#express_node_metricsmetricsprocessmetricsreset)
+  - [Arguments](#arguments-1)
+  - [Returned function arguments](#returned-function-arguments-1)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">apiMetrics</span>(reset)](#express_node_metricsmetricsapimetricsreset
+)
+  - [Arguments](#arguments-2)
+  - [Returned function arguments](#returned-function-arguments-2)
+- [express_node_metrics.metrics.internalMetrics(reset)](#express_node_metricsmetricsinternalmetricsreset)
+  - [Arguments](#arguments-3)
+  - [Returned function arguments](#returned-function-arguments-3)
+- [express_node_metrics.metrics.addApiData(info, err)](#express_node_metricsmetricsaddapidatainfo-err)
+- [express_node_metrics.metrics.endPointMetrics(reset)](#express_node_metricsmetricsendpointmetricsreset)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.decrementCustomMetric" id="apidoc.element.express-node-metrics.metrics.decrementCustomMetric">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>decrementCustomMetric
+        <span class="apidocSignatureSpan">(metricName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decrementCustomMetric = function (metricName) {
+  let counter = addMetric(metricName, &#x22;Counter&#x22;);
+  counter.dec();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [Returned function arguments](#returned-function-arguments-4)
+- [express_node_metrics.metrics.logInternalMetric(info, err)](#express_node_metricsmetricsloginternalmetricinfo-err)
+  - [Arguments](#arguments-5)
+- [express_node_metrics.metrics.addCustomGaugeMetric(metricName, metricValue)](#express_node_metricsmetricsaddcustomgaugemetricmetricname
+-metricvalue)
+  - [Arguments](#arguments-6)
+- [express_node_metrics.metrics.incrementCustomMetric(metricName)](#express_node_metricsmetricsincrementcustommetricmetricname)
+  - [Arguments](#arguments-7)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">decrementCustomMetric</span>(metricName)](#express_node_metricsmetricsdecrementcustommetricmetricname
+)
+  - [Arguments](#arguments-8)
+- [express_node_metrics.metrics.customMeterMetric(metricName)](#express_node_metricsmetricscustommetermetricmetricname)
+  - [Arguments](#arguments-9)
+- [How to Use With Docker](#how-to-use-with-docker)
+- [Examples](#examples)
+- [Middleware](#middleware)
+- [Internal metrics](#internal-metrics)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.endPointMetrics" id="apidoc.element.express-node-metrics.metrics.endPointMetrics">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>endPointMetrics
+        <span class="apidocSignatureSpan">(reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">endPointMetrics = function (reset) {
+  var metricsAsJson = JSON.stringify(trackedMetrics[NAMESPACES.endpoints]);
+  if (reset) {
+    resetMetric(NAMESPACES.endpoints);
+  }
+  return metricsAsJson;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [express_node_metrics.metrics.apiMetrics(reset)](#express_node_metricsmetricsapimetricsreset)
+  - [Arguments](#arguments-2)
+  - [Returned function arguments](#returned-function-arguments-2)
+- [express_node_metrics.metrics.internalMetrics(reset)](#express_node_metricsmetricsinternalmetricsreset)
+  - [Arguments](#arguments-3)
+  - [Returned function arguments](#returned-function-arguments-3)
+- [express_node_metrics.metrics.addApiData(info, err)](#express_node_metricsmetricsaddapidatainfo-err)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">endPointMetrics</span>(reset)](#express_node_metricsmetricsendpointmetricsreset
+)
+  - [Arguments](#arguments-4)
+  - [Returned function arguments](#returned-function-arguments-4)
+- [express_node_metrics.metrics.logInternalMetric(info, err)](#express_node_metricsmetricsloginternalmetricinfo-err)
+  - [Arguments](#arguments-5)
+- [express_node_metrics.metrics.addCustomGaugeMetric(metricName, metricValue)](#express_node_metricsmetricsaddcustomgaugemetricmetricname
+-metricvalue)
+  - [Arguments](#arguments-6)
+- [express_node_metrics.metrics.incrementCustomMetric(metricName)](#express_node_metricsmetricsincrementcustommetricmetricname)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.getAll" id="apidoc.element.express-node-metrics.metrics.getAll">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>getAll
+        <span class="apidocSignatureSpan">(reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAll = function (reset) {
+  var metricsAsJson = JSON.stringify(trackedMetrics);
+  if (reset) {
+    resetAll();
+  }
+  return metricsAsJson;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+- [Features](#features)
+- [Install](#install)
+- [API](#api)
+- [express_node_metrics](#express_node_metrics)
+- [express_node_metrics.middleware](#express_node_metricsmiddleware)
+- [express_node_metrics.metrics](#express_node_metricsmetrics)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">getAll</span>(reset)](#express_node_metricsmetricsgetallreset
+)
+  - [Arguments](#arguments)
+  - [Returned function arguments](#returned-function-arguments)
+- [express_node_metrics.metrics.processMetrics(reset)](#express_node_metricsmetricsprocessmetricsreset)
+  - [Arguments](#arguments-1)
+  - [Returned function arguments](#returned-function-arguments-1)
+- [express_node_metrics.metrics.apiMetrics(reset)](#express_node_metricsmetricsapimetricsreset)
+  - [Arguments](#arguments-2)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.incrementCustomMetric" id="apidoc.element.express-node-metrics.metrics.incrementCustomMetric">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>incrementCustomMetric
+        <span class="apidocSignatureSpan">(metricName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">incrementCustomMetric = function (metricName) {
+  let counter = addMetric(metricName, &#x22;Counter&#x22;);
+  counter.inc();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [express_node_metrics.metrics.endPointMetrics(reset)](#express_node_metricsmetricsendpointmetricsreset)
+    - [Arguments](#arguments-4)
+    - [Returned function arguments](#returned-function-arguments-4)
+  - [express_node_metrics.metrics.logInternalMetric(info, err)](#express_node_metricsmetricsloginternalmetricinfo-err)
+    - [Arguments](#arguments-5)
+  - [express_node_metrics.metrics.addCustomGaugeMetric(metricName, metricValue)](#express_node_metricsmetricsaddcustomgaugemetricmetricname
+-metricvalue)
+    - [Arguments](#arguments-6)
+  - [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">incrementCustomMetric</span>(metricName)](#express_node_metricsmetricsincrementcustommetricmetricname
+)
+    - [Arguments](#arguments-7)
+  - [express_node_metrics.metrics.decrementCustomMetric(metricName)](#express_node_metricsmetricsdecrementcustommetricmetricname
+)
+    - [Arguments](#arguments-8)
+  - [express_node_metrics.metrics.customMeterMetric(metricName)](#express_node_metricsmetricscustommetermetricmetricname)
+    - [Arguments](#arguments-9)
+- [How to Use With Docker](#how-to-use-with-docker)
+- [Examples](#examples)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.internalMetrics" id="apidoc.element.express-node-metrics.metrics.internalMetrics">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>internalMetrics
+        <span class="apidocSignatureSpan">(reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">internalMetrics = function (reset) {
+  var metricsAsJson = JSON.stringify(trackedMetrics[NAMESPACES.internalMetrics]);
+  if (reset)
+    resetMetric(NAMESPACES.internalMetrics);
+  return metricsAsJson;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  - [Returned function arguments](#returned-function-arguments)
+- [express_node_metrics.metrics.processMetrics(reset)](#express_node_metricsmetricsprocessmetricsreset)
+  - [Arguments](#arguments-1)
+  - [Returned function arguments](#returned-function-arguments-1)
+- [express_node_metrics.metrics.apiMetrics(reset)](#express_node_metricsmetricsapimetricsreset)
+  - [Arguments](#arguments-2)
+  - [Returned function arguments](#returned-function-arguments-2)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">internalMetrics</span>(reset)](#express_node_metricsmetricsinternalmetricsreset
+)
+  - [Arguments](#arguments-3)
+  - [Returned function arguments](#returned-function-arguments-3)
+- [express_node_metrics.metrics.addApiData(info, err)](#express_node_metricsmetricsaddapidatainfo-err)
+- [express_node_metrics.metrics.endPointMetrics(reset)](#express_node_metricsmetricsendpointmetricsreset)
+  - [Arguments](#arguments-4)
+  - [Returned function arguments](#returned-function-arguments-4)
+- [express_node_metrics.metrics.logInternalMetric(info, err)](#express_node_metricsmetricsloginternalmetricinfo-err)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.logInternalMetric" id="apidoc.element.express-node-metrics.metrics.logInternalMetric">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>logInternalMetric
+        <span class="apidocSignatureSpan">(info, err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logInternalMetric = function (info, err) {
+  var status = &#x22;success&#x22;;
+
+  if (err) {
+    status = &#x22;failure&#x22;;
+  }
+
+  addInnerIO({
+    destination: info.source,
+    method: info.methodName,
+    status: status,
+    elapsedTime: Date.now() - info.startTime
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [express_node_metrics.metrics.internalMetrics(reset)](#express_node_metricsmetricsinternalmetricsreset)
+  - [Arguments](#arguments-3)
+  - [Returned function arguments](#returned-function-arguments-3)
+- [express_node_metrics.metrics.addApiData(info, err)](#express_node_metricsmetricsaddapidatainfo-err)
+- [express_node_metrics.metrics.endPointMetrics(reset)](#express_node_metricsmetricsendpointmetricsreset)
+  - [Arguments](#arguments-4)
+  - [Returned function arguments](#returned-function-arguments-4)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">logInternalMetric</span>(info, err)](#express_node_metricsmetricsloginternalmetricinfo
+-err)
+  - [Arguments](#arguments-5)
+- [express_node_metrics.metrics.addCustomGaugeMetric(metricName, metricValue)](#express_node_metricsmetricsaddcustomgaugemetricmetricname
+-metricvalue)
+  - [Arguments](#arguments-6)
+- [express_node_metrics.metrics.incrementCustomMetric(metricName)](#express_node_metricsmetricsincrementcustommetricmetricname)
+  - [Arguments](#arguments-7)
+- [express_node_metrics.metrics.decrementCustomMetric(metricName)](#express_node_metricsmetricsdecrementcustommetricmetricname)
+  - [Arguments](#arguments-8)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.express-node-metrics.metrics.processMetrics" id="apidoc.element.express-node-metrics.metrics.processMetrics">
+        function <span class="apidocSignatureSpan">express-node-metrics.metrics.</span>processMetrics
+        <span class="apidocSignatureSpan">(reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processMetrics = function (reset) {
+  var metricsAsJson = JSON.stringify(trackedMetrics[NAMESPACES.process]);
+  if (reset)
+    resetProcessMetrics();
+  return metricsAsJson;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- [API](#api)
+- [express_node_metrics](#express_node_metrics)
+- [express_node_metrics.middleware](#express_node_metricsmiddleware)
+- [express_node_metrics.metrics](#express_node_metricsmetrics)
+- [express_node_metrics.metrics.getAll(reset)](#express_node_metricsmetricsgetallreset)
+  - [Arguments](#arguments)
+  - [Returned function arguments](#returned-function-arguments)
+- [express_node_metrics.metrics.<span class="apidocCodeKeywordSpan">processMetrics</span>(reset)](#express_node_metricsmetricsprocessmetricsreset
+)
+  - [Arguments](#arguments-1)
+  - [Returned function arguments](#returned-function-arguments-1)
+- [express_node_metrics.metrics.apiMetrics(reset)](#express_node_metricsmetricsapimetricsreset)
+  - [Arguments](#arguments-2)
+  - [Returned function arguments](#returned-function-arguments-2)
+- [express_node_metrics.metrics.internalMetrics(reset)](#express_node_metricsmetricsinternalmetricsreset)
+  - [Arguments](#arguments-3)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
